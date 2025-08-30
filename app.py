@@ -68,7 +68,7 @@ cities = scraper.get_car_cities()
 specs = scraper.get_vehicle_specs()
 
 
-sheet = GoogleSheetSaver("pakwheelsscraper-dcf78b2d298b.json", "PakWheelsCarData")
+sheet = GoogleSheetSaver("GOOGLE_SHEETS_CREDENTIALS", "PakWheelsCarData")
 sheet.save_cars(cars, cities, prices, specs)
 
 

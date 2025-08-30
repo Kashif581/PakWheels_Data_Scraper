@@ -1,4 +1,5 @@
 ### Scraper
 ---
 
-<img width="1045" height="466" alt="lweu" src="https://github.com/user-attachments/assets/2c308408-350e-477a-96c0-8ca7c82d9cf6" />
+<img width="1017" height="541" alt="setup" src="https://github.com/user-attachments/assets/a4829737-758b-4cf6-8e5c-743c8da69514" />
+

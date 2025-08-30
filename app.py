@@ -9,6 +9,8 @@ from scraper import CarScraper
 from sheets import GoogleSheetSaver
 import time
 from selenium.webdriver.support import expected_conditions as EC # Define conditions (e.g, 'element is clickable') to use with WebdriverWait
+import os
+import json
 
 
 
@@ -68,7 +70,17 @@ cities = scraper.get_car_cities()
 specs = scraper.get_vehicle_specs()
 
 
-sheet = GoogleSheetSaver("GOOGLE_SHEETS_CREDENTIALS", "PakWheelsCarData")
+# Get credentials from GitHub Secrets
+creds_json = os.getenv("GOOGLE_SHEETS_CREDENTIALS") 
+
+if creds_json is None:
+    raise ValueError("Missing GOOGLE_SHEETS_CREDENTIALS env var")
+
+# Parse JSON string into dict
+creds_dict = json.loads(creds_json)
+
+# Pass credentials dict to GoogleSheetSaver
+sheet = GoogleSheetSaver(creds_dict, "PakWheelsCarData")
 sheet.save_cars(cars, cities, prices, specs)
 
 

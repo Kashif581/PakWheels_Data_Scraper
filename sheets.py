@@ -1,15 +1,13 @@
 import gspread # python library to interact with Google Sheets
-from oauth2client.service_account import ServiceAccountCredentials # authenticate with a service account
- 
-
+from google.oauth2.service_account import Credentials
 
 class GoogleSheetSaver:
-    def __init__(self, creds_file, sheet_name):
+    def __init__(self, creds_dict, sheet_name):
         # https://spreadsheets.google.com/feeds → Permission to read/write Google Sheets data.
         # https://www.googleapis.com/auth/drive → Permission to access Google Drive
         scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"] #defines permissions are needed (read/write Google Sheets + Drive). 
 
-        creds = ServiceAccountCredentials.from_json_keyfile_name(creds_file, scope) # load credentials from JSON key file
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scope) # load credentials from JSON key file
         client = gspread.authorize(creds) # authenticated Google Sheets client
 
 

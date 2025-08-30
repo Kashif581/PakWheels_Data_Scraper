@@ -11,6 +11,7 @@ import time
 from selenium.webdriver.support import expected_conditions as EC # Define conditions (e.g, 'element is clickable') to use with WebdriverWait
 import os
 import json
+import tempfile
 
 
 
@@ -24,11 +25,13 @@ options = Options()
 options.add_argument("--ignore-certificate-errors")
 options.add_argument("--ignore-ssl-errors")
 options.add_argument("--ignore-start-errors")
-options.add_argument("--start-maximized") # start with full screen
+options.add_argument("--headless=new") # start with full screen
 # prefs = {
 #     "profile.default_content_setting_values.notifications": 2  # 1=Allow, 2=Block
 # }
 # options.add_experimental_option("prefs", prefs)
+
+user_data_dir = tempfile.mkdtemp()
 
 
 

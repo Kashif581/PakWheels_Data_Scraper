@@ -14,7 +14,7 @@ from selenium.webdriver.support import expected_conditions as EC # Define condit
 
 
 # path to chromedriver
-driver_path = r"Chrome_driver/chromedriver.exe"
+driver_path = r"/usr/local/bin/chromedriver"
 url = "https://www.pakwheels.com/"
 
 options = Options()

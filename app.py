@@ -16,7 +16,7 @@ import json
 
 
 # path to chromedriver
-driver_path = r"/usr/local/bin/chromedriver"
+driver_path = r"/usr/bin/chromedriver"
 url = "https://www.pakwheels.com/"
 
 options = Options()

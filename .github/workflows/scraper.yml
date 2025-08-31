@@ -23,6 +23,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install Playwright browsers
+        run: playwright install chromium
+
       - name: Install Chrome
         run: |
           sudo apt-get update
@@ -33,7 +36,12 @@ jobs:
           sudo apt-get install -y chromium-chromedriver
           sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver || true
 
-      - name: Run scraper
+      - name: Run app.py (Selenium Scraper)
         env:
           GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: python app.py
+
+      - name: Run Crawl4ai.py (Crawl4AI Scraper)
+        env:
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: python Crawl4ai.py
